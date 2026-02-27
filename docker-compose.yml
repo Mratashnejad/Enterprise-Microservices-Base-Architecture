@@ -1,0 +1,30 @@
+services:
+  auth-db:
+    image: postgres:16
+    container_name: auth-db
+    environment:
+      POSTGRES_DB: auth_db
+      POSTGRES_USER: postgress
+      POSTGRES_PASSWORD: postgress
+    ports:
+      - "5433:5432"
+    volumes:
+      - auth_db_data:/var/lib/postgresql/data
+
+  exchange-db:
+    image: postgres:16
+    container_name: exchange-db
+    environment:
+      POSTGRES_DB: exchange_db
+      POSTGRES_USER: postgress
+      POSTGRES_PASSWORD: postgress
+    ports:
+      - "5434:5432"
+    volumes:
+      - exchange_db_data:/var/lib/postgresql/data
+  
+
+  volumes:
+    auth_db_data:
+    exchange_db_data:
+
